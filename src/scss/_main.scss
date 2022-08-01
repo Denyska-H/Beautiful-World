@@ -1,0 +1,93 @@
+.gallery {
+	transform-style: preserve-3d;
+	height: 100%;
+}
+
+.frame {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: $transition;
+
+	&_bg {
+		background-color: rgb(0 0 0 / 0.88);
+	}
+
+	&__content {
+		h2 {
+			text-align: center;
+			width: min-content;
+			font-size: calc($index * 3.4);
+		}
+	}
+
+	video {
+		width: index($index, $bigSide);
+		height: index($index, $smallSide);
+	}
+
+	h3 {
+		font-size: calc($index * 2.3);
+	}
+
+	p {
+		max-width: 40vw;
+		margin-top: 2vh;
+	}
+}
+
+.frame-media {
+	position: relative;
+	width: index($index, $smallSide);
+	height: index($index, $bigSide);
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center;
+	}
+
+	&_left {
+		right: shift($smallSide, $index);
+	}
+
+	&_right {
+		left: shift($smallSide, $index);
+	}
+}
+
+video.frame-media_right {
+	left: shift($bigSide, $index);
+}
+
+video.frame-media_left {
+	right: shift($bigSide, $index);
+}
+
+.text-right {
+	position: relative;
+	left: 25vw;
+}
+
+.text-left {
+	position: relative;
+	right: 20vw;
+}
+
+.sound-button {
+	position: fixed;
+	bottom: 4vh;
+	right: 5vw;
+	cursor: pointer;
+	img {
+		width: 35px;
+	}
+	transition: 0.25s ease;
+}
+
+.paused {
+	opacity: 0.3;
+}

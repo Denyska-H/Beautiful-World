@@ -1,0 +1,19 @@
+@use "sass:math";
+
+// Convert to %
+@function prc($pxFirst, $pxSecond) {
+	$result: math.div($pxFirst, $pxSecond) * 100%;
+	@return $result;
+}
+
+// Index
+@function index($index, $side) {
+	$result: calc($index * $side);
+	@return $result;
+}
+
+// Shift left & right
+@function shift($side, $index) {
+	$result: calc((($side / 2) * $index) + $gap);
+	@return $result;
+}
